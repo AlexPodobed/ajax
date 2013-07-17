@@ -81,22 +81,22 @@ function CalculatorController() {
 
                 elements.summ_node.onclick = function() {
                         getValues();
-                        model.useAjaxToSolve('GET', '/php/add.php', values.first, values.second, insertResult);
+                        model.useAjaxToSolve('/php/add.php', values, insertResult);
                 };
 
                 elements.minus_node.onclick = function() {
                         getValues();
-                        model.useAjaxToSolve('GET', '/php/sub.php', values.first, values.second, insertResult);
+                        model.useAjaxToSolve('/php/sub.php', values, insertResult);
                 };
 
                 elements.multiply_node.onclick = function() {
                         getValues();
-                        model.useAjaxToSolve('GET', '/php/mul.php', values.first, values.second, insertResult);
+                        model.useAjaxToSolve('/php/mul.php', values, insertResult);
                 };
 
                 elements.devide_node.onclick = function() {
                         getValues();
-                        model.useAjaxToSolve('GET', '/php/div.php', values.first, values.second, insertResult);
+                        model.useAjaxToSolve('/php/div.php', values, insertResult);
                 };
         };
 
