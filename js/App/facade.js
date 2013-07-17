@@ -45,3 +45,22 @@ var calendar_facade = new Facade();
 this.solve = function(params, callback) {
   calc_facade.useAjaxToSolve('calendar', params, callback);
 }
+
+
+
+function getCoolStr(obj) {
+    var arr_of_values = [],
+        str_for_url = "?",
+        key, i;
+
+    for (key in obj) {
+        arr_of_values.push(obj[key]);
+    }
+
+    for (i = 0; i < arr_of_values.length; i++) {
+        str_for_url += 'operand' + (i + 1) + '=' + arr_of_values[i] + '&';
+    }
+
+    return str_for_url.slice(0, str_for_url.length - 1);
+}
+
