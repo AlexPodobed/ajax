@@ -1,24 +1,29 @@
 function CalculatorModel() {
 
-        this.getAjax = function() {
+        function getAjax() {
                 return (XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject();
         };
 
-        this.useAjaxToSolve = function(method, uri, operand1, operand2, func) {
-                var   xhr = this.getAjax(),
-                        response;
+        this.useAjaxToSolve = function(uri, params, callback){
+                var   ajax = getAjax();
 
-                xhr.onreadystatechange = function() {
+                ajax.onreadystatechange = function() {
 
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                                response = xhr.responseText;
-                                func(response);
+                        if (ajax.readyState === 4 && ajax.status === 200) {
+                                callback(ajax.responseText);
                         }
 
                 };
-                xhr.open(method, uri + "?operand1=" + operand1 + "&operand2=" + operand2, true);
-                xhr.send();
+                ajax.open("GET", uri + "?operand1=" + params.first + "&operand2=" + params.second, true);
+                ajax.send();
         };
 
         return this;
 }
+
+/*
+ params{
+   first: value,
+   second: value
+ }
+*/
