@@ -1,6 +1,18 @@
 function CalculatorModel() {
+        var facade = new Facade();
 
-        this.getAjax = function() {
+        this.solveExpression = function(model, params, callback){
+                return facade.useAjax(model, params, callback);
+        };
+
+
+        return this;
+}
+
+
+
+/*
+       this.getAjax = function() {
                 return (XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject();
         };
 
@@ -19,6 +31,4 @@ function CalculatorModel() {
                 xhr.open(method, uri + "?operand1=" + operand1 + "&operand2=" + operand2, true);
                 xhr.send();
         };
-
-        return this;
-}
+*/
